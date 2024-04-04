@@ -1,0 +1,35 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/keys
+Accept: application/json
+
+###
+
+
+POST http://127.0.0.1:8000/token
+Content-Type: application/x-www-form-urlencoded
+
+username = johndoe &
+password = secret
+
+###
+
+GET http://127.0.0.1:4455/ip
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lIiwiZXhwIjoxNzEyMjExNzcxfQ.f54ftEAfr22d6Jvd730m_bLysYs6nDVFqSF9fCIoTS1DwJN6PA0KBifYcqdYK2ZJZYXjeAogYcq5_OOUl9G6GR-veX71KI7qdznqqt5UQT7Iy6J2zCa1I9bWg3oUOyKOvJCpzn6bNq4RXWd2Wh3_dsqoZobLQrYFZNTFOXw7VedAyS85uXHDZbUbtwhgtF8n2q-P1BVLwk3CEzt-t351VRLQ-Q1RtrfCT6dgx4-HBP-WQKnTUO_aqH1DsoRNvPSN_RaAiC_4X-pwp3RS097nGTXTYYR0HJs-cdaSlv-LFMiVMFESxQk2VqYHIog97PuBvnIlt9eI1sWL9xMqRrGzkQ
+
+###
+
+GET http://127.0.0.1:4455/check-id-token
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huZG9lIiwiZXhwIjoxNzEyMjEzNjY2fQ.VxTA0kt3hHiSRxf7J3ZAb2I8iWTysGvL7GrZ_e4vMLu2CciDH7Tgob2ejhUcpVVloMabStIvFLFZCS5rL_6MorsGr2XJB-lG-JUejlmCFXb7Fk66C6A0d2xcmlbkEcyUhdow9ZpM93FxwiZG3veh2y4vX8o4Algvy8jRTQWDUc4S3fFa-26TXlHAvz8YOY_x2TWdOe1x9Zpl0CgPFiu5AOUupeDb7KgAu6zc3QQaXi3qh_kyI7K0sp2_tPLByvCLLS6Mu4lA5d0ppWwStwswo4fdJtjsbbG7L662bv0Jc6S9VvJCCgOgPP17EiDVq1X7CeJg6DMAPKOgpLtfVbtnKg

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fast-api-ory-gateway"
+version = "0.1.0"
+description = ""
+authors = ["Ricardo P. Avila <rpaa01@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-multipart = "^0.0.9"
+itsdangerous = "^2.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

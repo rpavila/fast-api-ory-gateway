@@ -1,0 +1,66 @@
+- id: "httpbin:ip"
+  upstream:
+    url: "https://httpbin.org"
+  match:
+    url: "http://127.0.0.1:4455/ip"
+    methods:
+      - GET
+  authenticators:
+    - handler: bearer_token
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: id_token
+
+- id: "microservice:auth:id-token"
+  upstream:
+    url: "http://172.25.0.1:8000"
+  match:
+    url: "http://127.0.0.1:4455/check-id-token"
+    methods:
+      - GET
+  authenticators:
+    - handler: bearer_token
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: header
+
+#-
+#  id: "ory:kratos-selfservice-ui-node:anonymous"
+#  upstream:
+#    preserve_host: true
+#    url: "http://kratos-selfservice-ui-node:4435"
+#  match:
+#    url: "http://127.0.0.1:4455/<{registration,welcome,recovery,verification,login,error,health/{alive,ready},**.css,**.js,**.png,**.svg,**.woff*}>"
+#    methods:
+#      - GET
+#  authenticators:
+#    -
+#      handler: anonymous
+#  authorizer:
+#    handler: allow
+#  mutators:
+#    -
+#      handler: noop
+
+#-
+#  id: "ory:kratos-selfservice-ui-node:protected"
+#  upstream:
+#    preserve_host: true
+#    url: "http://kratos-selfservice-ui-node:4435"
+#  match:
+#    url: "http://127.0.0.1:4455/<{sessions,settings}>"
+#    methods:
+#      - GET
+#  authenticators:
+#    -
+#      handler: cookie_session
+#  authorizer:
+#    handler: allow
+#  mutators:
+#    - handler: id_token
+#  errors:
+#    - handler: redirect
+#      config:
+#        to: http://127.0.0.1:4455/login

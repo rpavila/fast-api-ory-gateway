@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=supersecret
+      - POSTGRES_DB=oryd
+
+  gateway:
+    image: oryd/oathkeeper
+    command: serve proxy -c "/etc/config/oathkeeper/oathkeeper.yml"
+    environment:
+      - LOG_LEVEL=debug
+    ports:
+      - 4455:4455
+      - 4456:4456
+    volumes:
+      - ./oryd/:/etc/config/oathkeeper
+
+#  service:
+#    build:
+#      context: .
